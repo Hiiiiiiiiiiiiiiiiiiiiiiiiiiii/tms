@@ -151,12 +151,7 @@ public class HomeServiceImpl  implements HomeService{
      */
     @Override
     public Shop findShopByPhone(String shopPhone) {
-        ShopExample shopExample = new ShopExample();
-        shopExample.createCriteria().andPhotoEqualTo(shopPhone);
-        List<Shop> shopList = shopMapper.selectByExample(shopExample);
-        if(shopList!=null && !shopList.isEmpty()){
-            return shopList.get(0);
-        }
-        return null;
+        Shop shop = shopMapper.findShopByPhone(shopPhone);
+        return shop;
     }
 }

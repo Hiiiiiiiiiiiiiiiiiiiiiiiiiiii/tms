@@ -2,6 +2,7 @@ com\helloword\mapper\CustomerMapper.class
 com\helloword\mapper\AccountLoginLogMapper.class
 com\helloword\mapper\RoleMapper.class
 com\helloword\mapper\LogCardMapper.class
+com\helloword\mapper\ShopOrderMapper.class
 com\helloword\mapper\ScenicMapper.class
 com\helloword\mapper\ShopMapper.class
 com\helloword\App.class
@@ -11,5 +12,6 @@ com\helloword\mapper\LogScenicMapper.class
 com\helloword\mapper\ScenicAccountMapper.class
 com\helloword\mapper\ShopAccountMapper.class
 com\helloword\service\impl\TravelLoginServiceImpl.class
+com\helloword\service\impl\HomeServiceImpl.class
 com\helloword\mapper\AccountMapper.class
 com\helloword\mapper\LogShopMapper.class

@@ -17,7 +17,7 @@
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="/system/user/admin">旅游局管理用户</a></li>
+                    <li><a class="" href="/system/tour/user">旅游局管理用户</a></li>
                     <li><a class="" href="buttons.html">综合管理用户</a></li>
                     <li><a class="" href="grids.html">结算管理用户</a></li>
                     <li><a class="" href="grids.html">售票用户</a></li>

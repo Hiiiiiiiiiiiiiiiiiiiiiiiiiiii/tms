@@ -240,4 +240,14 @@
       shop_accountid = #{shopAccountid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="findShopByPhone" parameterType="string" resultType="com.helloword.entity.Shop">
+    SELECT
+        shop.id,shop.address ,shop.create_time,shop.idcard,shop.`name`,shop.photo,shop.shop_accountid
+    FROM
+        t_shop AS shop,
+        t_shop_account AS account
+    WHERE
+        shop.shop_accountid = account.id
+    AND account.account = #{shopPhone,jdbcType=VARCHAR}
+  </select>
 </mapper>

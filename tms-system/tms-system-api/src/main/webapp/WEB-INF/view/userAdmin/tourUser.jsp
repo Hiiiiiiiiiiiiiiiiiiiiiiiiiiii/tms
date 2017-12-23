@@ -82,49 +82,59 @@ pageEncoding="UTF-8" %>
           </section>
       </section>
       <%--model--%>
-      <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div id="myModel" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
           <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
-                  <form class="layui-form layui-form-pane" action="">
-                      <div class="layui-form-item" pane>
-                          <label class="layui-form-label">景区所在地</label>
-                          <div class="layui-input-block">
-                              <input type="text" name="address" required lay-verify="required" autocomplete="off" class="layui-input">
-                          </div>
+                  <p class="lead" style="color: #000000;padding-left: 220px;background-color: #3b883e" ><label style="color: white">景区用户添加</label></p>
+                  <div class="row">
+                      <div class="col-md-1">
                       </div>
-                      <div class="layui-form-item" pane>
-                          <label class="layui-form-label">景区所在地</label>
-                          <div class="layui-input-block">
-                              <input type="text" name="address" required lay-verify="required" autocomplete="off" class="layui-input">
-                          </div>
+                      <div class="col-md-10">
+                          <fieldset>
+                              <legend>
+                                  <label><a href="javascript:;">基本信息</a></label>
+                              </legend>
+                          </fieldset>
+                          <form class="layui-form layui-form-pane" method="post" action="/system/tour/user">
+                              <div class="layui-form-item" pane>
+                                  <label class="layui-form-label">用户名</label>
+                                  <div class="layui-input-block">
+                                      <input type="text" name="accountName" required lay-verify="required" autocomplete="off" class="layui-input">
+                                  </div>
+                              </div>
+                              <div class="layui-form-item" pane>
+                                  <label class="layui-form-label">手机号</label>
+                                  <div class="layui-input-block">
+                                      <input type="text" name="accountMobile" required lay-verify="required" autocomplete="off" class="layui-input">
+                                  </div>
+                              </div>
+                              <div class="layui-form-item" pane>
+                                  <label class="layui-form-label">密码</label>
+                                  <div class="layui-input-block">
+                                      <input type="password" name="accountPassword" required lay-verify="required" autocomplete="off" class="layui-input">
+                                  </div>
+                              </div>
+                              <div>
+                                  <fieldset>
+                                      <legend>
+                                          <label><a href="javascript:;">权限</a></label>
+                                      </legend>
+                                  </fieldset>
+                                  <input type="checkbox" name="roleName" title="写作" value="写作">
+                                  <input type="checkbox" name="roleName" title="发呆" value="发呆">
+                                  <input type="checkbox" name="role" title="禁用">
+                                  <input type="checkbox" name="role" title="写作">
+                                  <input type="checkbox" name="role" title="发呆">
+                                  <input type="checkbox" name="role" title="禁用">
+                                  <input type="checkbox" name="role" title="写作">
+                              </div>
+                              <div class="layui-btn-group"style="float: right ;padding-bottom: 20px">
+                                  <button class="layui-btn">新增</button>
+                                  <button id="giveButton" type="button"  class="layui-btn">取消</button>
+                              </div>
+                          </form>
                       </div>
-                      <div class="layui-form-item" pane>
-                          <label class="layui-form-label">景区所在地</label>
-                          <div class="layui-input-block">
-                              <input type="text" name="address" required lay-verify="required" autocomplete="off" class="layui-input">
-                          </div>
-                      </div>
-
-                      <div class="layui-form-item" pane>
-                          <label class="layui-form-label">景区所在地</label>
-                          <div class="layui-input-block">
-                              <input type="text" name="address" required lay-verify="required" autocomplete="off" class="layui-input">
-                          </div>
-                      </div>
-                      <div class="layui-form-item">
-                          <label class="layui-form-label">景区级别</label>
-                          <div class="layui-input-block">
-                              <select name="level" lay-verify="required">
-                                  <option value=""></option>
-                                  <option value="A">A级</option>
-                                  <option value="AA">AA级</option>
-                                  <option value="AAA">AAA级</option>
-                                  <option value="AAAA">AAAA级</option>
-                                  <option value="AAAAA">AAAAA级</option>
-                              </select>
-                          </div>
-                      </div>
-                  </form>
+                  </div>
               </div>
           </div>
       </div>
@@ -132,7 +142,12 @@ pageEncoding="UTF-8" %>
       <jsp:include page="../include/js.jsp"/>
 
   <script>
-
+      (function(){
+//          关闭模态框
+          $("#giveButton").click(function(){
+            $("#myModel").modal('hide');
+          })
+      })()
   </script>
 
   </body>

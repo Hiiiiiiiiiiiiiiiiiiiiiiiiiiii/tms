@@ -1,6 +1,6 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
-
+.idea/
 ### STS ###
 .apt_generated
 .classpath
@@ -14,6 +14,7 @@ target/
 *.iws
 *.iml
 *.ipr
+.gitignore
 
 ### NetBeans ###
 nbproject/private/

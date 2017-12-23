@@ -27,4 +27,6 @@ public interface ShopMapper {
     int updateByPrimaryKeySelective(Shop record);
 
     int updateByPrimaryKey(Shop record);
+
+    Shop findShopByPhone(String shopPhone);
 }
