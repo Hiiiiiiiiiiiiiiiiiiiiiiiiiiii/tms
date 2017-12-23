@@ -33,6 +33,8 @@ public class HomeServiceImpl  implements HomeService{
     AccountMapper accountMapper;
     @Autowired
     RoleMapper roleMapper;
+    @Autowired
+    AccountRoleMapper accountRoleMapper;
 
     /**
      * 获取所有的景区信息
@@ -153,5 +155,27 @@ public class HomeServiceImpl  implements HomeService{
     public Shop findShopByPhone(String shopPhone) {
         Shop shop = shopMapper.findShopByPhone(shopPhone);
         return shop;
+    }
+
+    @Override
+    public int insertAccount(Account account) {
+        Date date = new Date();
+        account.setCreateTime(date);
+        account.setUpdateTime(date);
+        accountMapper.insert(account);
+        return account.getId();
+    }
+
+    @Override
+    public void insertRoleRelationship(String role, int accountId) {
+        RoleExample roleExample = new RoleExample();
+        roleExample.createCriteria().andRoleNameEqualTo(role);
+        List<Role> roleList = roleMapper.selectByExample(roleExample);
+        int roleId = roleList.get(0).getId();
+
+        AccountRoleKey accountRoleKey = new AccountRoleKey();
+        accountRoleKey.setAccountId(accountId);
+        accountRoleKey.setRoleId(roleId);
+        accountRoleMapper.insert(accountRoleKey);
     }
 }

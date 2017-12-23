@@ -26,4 +26,8 @@ public interface HomeService {
     Shop findShopByShopId(Integer shopId);
 
     Shop findShopByPhone(String shopPhone);
+
+    int insertAccount(Account account);
+
+    void insertRoleRelationship(String role, int accountId);
 }

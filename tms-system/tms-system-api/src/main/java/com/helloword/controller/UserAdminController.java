@@ -35,7 +35,12 @@ public class UserAdminController {
     @PostMapping("/tour/user")
     public String createNewTourUser(RedirectAttributes redirectAttributes,
                                     Account account, String[] roleName){
-
+        //1.添加新旅游局用户
+        int accountId = homeService.insertAccount(account);
+        //2.用户与角色建立关系
+        for(String role : roleName){
+            homeService.insertRoleRelationship(role,accountId);
+        }
 
         redirectAttributes.addFlashAttribute("message","添加新用户成功!");
         return "redirect:/system/tour/user";

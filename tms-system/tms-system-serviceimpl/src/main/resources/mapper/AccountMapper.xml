@@ -101,7 +101,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.helloword.entity.Account">
+  <insert id="insert" parameterType="com.helloword.entity.Account" useGeneratedKeys="true" keyProperty="id">
     insert into account (id, account_name, account_mobile, 
       account_password, create_time, update_time, 
       account_state)
