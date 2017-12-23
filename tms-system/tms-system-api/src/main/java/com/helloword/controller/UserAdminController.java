@@ -27,6 +27,9 @@ public class UserAdminController {
         //1.旅游局管理用户
         List<Account> accountList = homeService.findAllTravelAccount();
         model.addAttribute("accountList",accountList);
+        //查询所有角色
+        List<Role> roleList = homeService.findAllRole();
+        model.addAttribute("roleList",roleList);
         //2.综合管理用户
         //3.结算管理用户
         //4.售票用户
@@ -41,7 +44,6 @@ public class UserAdminController {
         for(String role : roleName){
             homeService.insertRoleRelationship(role,accountId);
         }
-
         redirectAttributes.addFlashAttribute("message","添加新用户成功!");
         return "redirect:/system/tour/user";
     }

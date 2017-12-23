@@ -202,8 +202,7 @@
         r.role_name
     FROM
         role AS r,
-        account_role AS ar,
-        account AS a
+        account_role AS ar
     WHERE
         r.id = ar.role_id
     AND ar.account_id = #{id,jdbcType=INTEGER}

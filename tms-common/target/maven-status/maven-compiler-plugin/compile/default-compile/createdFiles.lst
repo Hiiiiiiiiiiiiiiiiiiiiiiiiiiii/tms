@@ -6,6 +6,7 @@ com\helloword\entity\ShopAccountExample$GeneratedCriteria.class
 com\helloword\entity\ShopAccountExample$Criteria.class
 com\helloword\entity\ShopAccountExample.class
 com\helloword\entity\Account.class
+com\helloword\entity\AccountRoleExample.class
 com\helloword\entity\Scenic.class
 com\helloword\entity\RoleExample$Criteria.class
 com\helloword\entity\ScenicExample$Criterion.class
@@ -30,6 +31,7 @@ com\helloword\entity\LogScenicExample$Criterion.class
 com\helloword\entity\ScenicAccountExample$Criterion.class
 com\helloword\entity\CustomerExample.class
 com\helloword\entity\LogCardExample$Criterion.class
+com\helloword\entity\AccountRoleExample$Criterion.class
 com\helloword\entity\RoleExample.class
 com\helloword\entity\AccountExample$Criteria.class
 com\helloword\entity\ShopOrderExample$GeneratedCriteria.class
@@ -40,9 +42,11 @@ com\helloword\entity\ScenicExample.class
 com\helloword\entity\CustomerExample$GeneratedCriteria.class
 com\helloword\entity\LogTravelExample$GeneratedCriteria.class
 com\helloword\entity\ScenicAccountExample$GeneratedCriteria.class
+com\helloword\entity\AccountRoleExample$GeneratedCriteria.class
 com\helloword\entity\LogTravelExample.class
 com\helloword\entity\ShopOrderExample$Criterion.class
 com\helloword\entity\AccountLoginLogExample$Criterion.class
+com\helloword\entity\AccountRoleExample$Criteria.class
 com\helloword\entity\RoleExample$Criterion.class
 com\helloword\entity\Shop.class
 com\helloword\entity\ShopExample$Criterion.class
@@ -60,6 +64,7 @@ com\helloword\entity\LogCardExample$Criteria.class
 com\helloword\entity\LogTravelExample$Criteria.class
 com\helloword\entity\ShopOrderExample$Criteria.class
 com\helloword\entity\ShopExample$GeneratedCriteria.class
+com\helloword\entity\AccountRoleKey.class
 com\helloword\entity\LogScenicExample$Criteria.class
 com\helloword\entity\LogTravel.class
 com\helloword\entity\AccountLoginLog.class

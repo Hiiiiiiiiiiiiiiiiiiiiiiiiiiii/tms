@@ -10,6 +10,7 @@ com\helloword\mapper\LogTravelMapper.class
 com\helloword\mapper\CardMapper.class
 com\helloword\mapper\LogScenicMapper.class
 com\helloword\mapper\ScenicAccountMapper.class
+com\helloword\mapper\AccountRoleMapper.class
 com\helloword\mapper\ShopAccountMapper.class
 com\helloword\service\impl\TravelLoginServiceImpl.class
 com\helloword\service\impl\HomeServiceImpl.class

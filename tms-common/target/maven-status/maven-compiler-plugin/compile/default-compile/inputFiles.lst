@@ -1,4 +1,5 @@
 D:\tms\tms-common\src\main\java\com\helloword\entity\AccountLoginLogExample.java
+D:\tms\tms-common\src\main\java\com\helloword\entity\AccountRoleExample.java
 D:\tms\tms-common\src\main\java\com\helloword\entity\LogScenic.java
 D:\tms\tms-common\src\main\java\com\helloword\entity\ScenicAccountExample.java
 D:\tms\tms-common\src\main\java\com\helloword\entity\Scenic.java
@@ -6,6 +7,7 @@ D:\tms\tms-common\src\main\java\com\helloword\entity\Shop.java
 D:\tms\tms-common\src\main\java\com\helloword\entity\Account.java
 D:\tms\tms-common\src\main\java\com\helloword\entity\ShopAccount.java
 D:\tms\tms-common\src\main\java\com\helloword\entity\ShopAccountExample.java
+D:\tms\tms-common\src\main\java\com\helloword\entity\AccountRoleKey.java
 D:\tms\tms-common\src\main\java\com\helloword\entity\LogCardExample.java
 D:\tms\tms-common\src\main\java\com\helloword\entity\LogCard.java
 D:\tms\tms-common\src\main\java\com\helloword\exception\CardException.java

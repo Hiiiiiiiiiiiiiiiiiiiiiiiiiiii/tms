@@ -30,4 +30,7 @@ public interface HomeService {
     int insertAccount(Account account);
 
     void insertRoleRelationship(String role, int accountId);
+
+    List<Role> findAllRole();
+
 }

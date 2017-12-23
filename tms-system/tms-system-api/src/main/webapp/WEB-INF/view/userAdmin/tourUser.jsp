@@ -32,7 +32,7 @@ pageEncoding="UTF-8" %>
                       <div class="col-md-10">
                           <div class="layui-btn-group" style="float: right">
                               <button class="layui-btn" style="background-color: #00b7ee" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="layui-icon">&#xe654;</i></button>
-                              <button class="layui-btn" style="background-color: orange"><i class="layui-icon">&#xe642;</i></button>
+                              <button class="layui-btn" style="background-color: orange" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="layui-icon">&#xe642;</i></button>
                               <button class="layui-btn" style="background-color: red"><i class="layui-icon">&#xe640;</i></button>
                           </div>
                           <c:choose>
@@ -81,8 +81,8 @@ pageEncoding="UTF-8" %>
               </div>
           </section>
       </section>
-      <%--model--%>
-      <div id="myModel" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <%--新增 model--%>
+      <div id="myModelAdd" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
           <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                   <p class="lead" style="color: #000000;padding-left: 220px;background-color: #3b883e" ><label style="color: white">景区用户添加</label></p>
@@ -120,21 +120,26 @@ pageEncoding="UTF-8" %>
                                           <label><a href="javascript:;">权限</a></label>
                                       </legend>
                                   </fieldset>
-                                  <input type="checkbox" name="roleName" title="写作" value="写作">
-                                  <input type="checkbox" name="roleName" title="发呆" value="发呆">
-                                  <input type="checkbox" name="role" title="禁用">
-                                  <input type="checkbox" name="role" title="写作">
-                                  <input type="checkbox" name="role" title="发呆">
-                                  <input type="checkbox" name="role" title="禁用">
-                                  <input type="checkbox" name="role" title="写作">
+                                  <c:forEach items="${roleList}" var="role">
+                                      <input type="checkbox" name="roleName" title="${role.roleName}" value="${role.roleName}">
+                                  </c:forEach>
                               </div>
                               <div class="layui-btn-group"style="float: right ;padding-bottom: 20px">
                                   <button class="layui-btn">新增</button>
-                                  <button id="giveButton" type="button"  class="layui-btn">取消</button>
+                                  <button id="giveButton"  type="button" data-dismiss="modal" class="layui-btn">取消</button>
                               </div>
                           </form>
                       </div>
                   </div>
+              </div>
+          </div>
+      </div>
+      <%--编辑model--%>
+      <div id="myModelChange" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                  <p class="lead" style="color: #000000;padding-left: 220px;background-color: #3b883e" ><label style="color: white">编辑</label></p>
+
               </div>
           </div>
       </div>
@@ -143,10 +148,9 @@ pageEncoding="UTF-8" %>
 
   <script>
       (function(){
-//          关闭模态框
-          $("#giveButton").click(function(){
-            $("#myModel").modal('hide');
-          })
+          if("${message}"){
+              layer.msg("${message}");
+          }
       })()
   </script>
 

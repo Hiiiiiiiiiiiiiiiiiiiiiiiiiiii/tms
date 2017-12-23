@@ -153,10 +153,19 @@ public class HomeServiceImpl  implements HomeService{
      */
     @Override
     public Shop findShopByPhone(String shopPhone) {
+        ShopAccountExample shopAccountExample = new ShopAccountExample();
+        shopAccountExample.createCriteria().andAccountEqualTo(shopPhone);
+        List<ShopAccount> shopAccountList = shopAccountMapper.selectByExample(shopAccountExample);
         Shop shop = shopMapper.findShopByPhone(shopPhone);
+        shop.setShopAccount(shopAccountList.get(0));
         return shop;
     }
 
+    /**
+     * 新增旅游局用户
+     * @param account
+     * @return
+     */
     @Override
     public int insertAccount(Account account) {
         Date date = new Date();
@@ -166,6 +175,11 @@ public class HomeServiceImpl  implements HomeService{
         return account.getId();
     }
 
+    /**
+     * 新增旅游局用户与权限关系
+     * @param role
+     * @param accountId
+     */
     @Override
     public void insertRoleRelationship(String role, int accountId) {
         RoleExample roleExample = new RoleExample();
@@ -177,5 +191,14 @@ public class HomeServiceImpl  implements HomeService{
         accountRoleKey.setAccountId(accountId);
         accountRoleKey.setRoleId(roleId);
         accountRoleMapper.insert(accountRoleKey);
+    }
+
+    /**
+     * 查询所有的角色
+     * @return
+     */
+    @Override
+    public List<Role> findAllRole() {
+        return roleMapper.selectByExample(new RoleExample());
     }
 }
