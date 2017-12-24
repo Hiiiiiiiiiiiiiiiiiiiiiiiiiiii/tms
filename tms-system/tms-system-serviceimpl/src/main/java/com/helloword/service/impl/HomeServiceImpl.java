@@ -10,6 +10,7 @@ import com.qiniu.util.StringMap;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 @Service
@@ -200,5 +201,62 @@ public class HomeServiceImpl  implements HomeService{
     @Override
     public List<Role> findAllRole() {
         return roleMapper.selectByExample(new RoleExample());
+    }
+
+    /**
+     * 根据旅游局用户id查询具体对象
+     * @param accountId
+     * @return
+     */
+    @Override
+    public Account findTravelAccountByAccountId(int accountId) {
+        List<Role> roleList = roleMapper.findAllRoleByAccountId(accountId);
+        Account account = accountMapper.selectByPrimaryKey(accountId);
+        account.setRoleList(roleList);
+        return account;
+    }
+
+    /**
+     * 修改旅游局用户的信息
+     * @param id
+     * @param accountState
+     * @param roleNames
+     */
+    @Override
+    public void tourUpdate(int id, String accountState, String[] roleNames) {
+        //查询旅游局用户
+        Account account = findTravelAccountByAccountId(id);
+        //更新用户信息
+        account.setAccountState(accountState);
+        account.setUpdateTime(new Date());
+        AccountExample accountExample = new AccountExample();
+        //update
+        accountMapper.updateByPrimaryKey(account);
+        //获取所有的权限
+        List<Role> roleList = account.getRoleList();
+        if(roleList!=null&&!roleList.isEmpty()){
+            for(String roleName : roleNames){
+                //当传过来个新的role时   应新建关系
+                if(!roleList.contains(roleName)){
+                    //查询该role的id
+                    RoleExample roleExample = new RoleExample();
+                    roleExample.createCriteria().andRoleNameEqualTo(roleName);
+                    List<Role> roleList1 = roleMapper.selectByExample(roleExample);
+                    //新增关系
+                    AccountRoleKey accountRoleKey = new AccountRoleKey();
+                    accountRoleKey.setRoleId(roleList1.get(0).getId());
+                    accountRoleKey.setAccountId(id);
+                    accountRoleMapper.insert(accountRoleKey);
+                }
+            }
+        }
+        ArrayList<String> stringArrayList = new ArrayList<>();
+        stringArrayList.toArray(roleNames);
+        //当传过来的role集合少了的时候 删除关系
+        for(Role role : roleList){
+            if(!stringArrayList.contains(role.getRoleName())){
+                accountRoleMapper.deleteByRoleIdAndAccountId(role.getId(),id);
+            }
+        }
     }
 }

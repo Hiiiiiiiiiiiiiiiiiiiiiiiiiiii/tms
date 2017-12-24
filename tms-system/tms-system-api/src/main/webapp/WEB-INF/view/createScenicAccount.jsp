@@ -95,6 +95,7 @@ pageEncoding="UTF-8" %>
 
               //监听提交
               form.on('submit(formDemo)', function(data){
+                  //用于从对象中解析出json  parse用于从字符串中解析出json对象
                   var json = JSON.stringify(data.field);
                   //将字符串转化成json对象
                   var accountJson = (new Function("return " + json))();

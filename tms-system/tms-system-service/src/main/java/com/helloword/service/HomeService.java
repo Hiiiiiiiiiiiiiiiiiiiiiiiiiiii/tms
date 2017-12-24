@@ -33,4 +33,7 @@ public interface HomeService {
 
     List<Role> findAllRole();
 
+    Account findTravelAccountByAccountId(int accountId);
+
+    void tourUpdate(int id, String accountState, String[] roleName);
 }

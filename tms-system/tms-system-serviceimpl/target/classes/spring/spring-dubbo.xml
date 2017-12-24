@@ -8,10 +8,10 @@ http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubb
     <dubbo:application name="UserService"/>
 
     <!--注册中心-->
-    <dubbo:registry address="zookeeper://192.168.1.35:2181"/>
+    <dubbo:registry address="zookeeper://192.168.10.106:2181"/>
 
     <!--dubbo协议和端口-->
-    <dubbo:protocol host="192.168.1.35" name="dubbo" port="20880"/>
+    <dubbo:protocol host="192.168.10.106" name="dubbo" port="20880"/>
 
     <!--暴露服务-->
     <!--<dubbo:service interface="com.helloword" ref="travelLoginServiceImpl"/>-->
