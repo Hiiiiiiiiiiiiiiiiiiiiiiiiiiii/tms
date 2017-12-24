@@ -80,4 +80,13 @@ public class UserAdminController {
         redirectAttributes.addFlashAttribute("message","修改用户信息成功!!");
         return "redirect:/system/tour/user";
     }
+    @PostMapping("/tour/user/delete")
+    public String deleteAccount(int accountId
+            ,RedirectAttributes redirectAttributes){
+
+        //删除该用户的所有信息
+        homeService.deleteAccountByAccountId(accountId);
+        redirectAttributes.addFlashAttribute("message","删除用户成功!");
+        return "redirect:/system/tour/user";
+    }
 }

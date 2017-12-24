@@ -33,7 +33,7 @@
                     <div class="layui-btn-group" style="float: right">
                         <button class="layui-btn" style="background-color: #00b7ee" data-toggle="modal" data-target="#myModelAdd"><i class="layui-icon">&#xe654;</i></button>
                         <button class="layui-btn" style="background-color: orange" data-toggle="modal" data-target="#myModelChange"><i class="layui-icon">&#xe642;</i></button>
-                        <button class="layui-btn" style="background-color: red"><i class="layui-icon">&#xe640;</i></button>
+                        <button class="layui-btn" style="background-color: red" data-toggle="modal" data-target="#myModelDelete"><i class="layui-icon">&#xe640;</i></button>
                     </div>
                     <c:choose>
                         <c:when test="${not empty accountList}">
@@ -161,7 +161,45 @@
             </div>
         </div>
     </div>
-    <!-- js -->
+</div>
+<div id="myModelDelete" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <p class="lead" style="color: #000000;padding-left: 270px;background-color: #3b883e" ><label style="color: white">编辑</label></p>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend>
+                                    <label><a href="javascript:;">删除用户</a></label>
+                                </legend>
+                            </fieldset>
+                            <form action="/system/tour/user/delete" method="post" id="delForm">
+                                <label style="font-size: 20px">用户名:</label>
+                                <select name="accountId" lay-verify="required">
+                                    <option value=""> <laber>请选择</laber></option>
+                                    <c:forEach items="${accountList}" var="account">
+                                        <option value="${account.id}">${account.accountName}</option>
+                                    </c:forEach>
+                                </select>
+                                <div class="layui-btn-group" style="margin-left: 140px">
+                                    <button class="layui-btn">确认修改</button>
+                                    <button type="button" data-dismiss="modal" class="layui-btn">取消修改</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- js -->
     <jsp:include page="../include/js.jsp"/>
     <script src="/static/artTemplate/art-template.js"></script>
     <script id="test" type="text/template">
@@ -206,8 +244,7 @@
     </script>
     <script>
         (function(){
-
-            if("${message}"){
+            if("${message}"!=""&&"${message}"!=null){
                 layer.msg("${message}");
             }
 

@@ -259,4 +259,18 @@ public class HomeServiceImpl  implements HomeService{
             }
         }
     }
+
+    /**
+     * 删除用户的所有信息
+     * @param accountId
+     */
+    @Override
+    public void deleteAccountByAccountId(int accountId) {
+        //删除对应的关系
+        AccountRoleExample accountRoleExample = new AccountRoleExample();
+        accountRoleExample.createCriteria().andAccountIdEqualTo(accountId);
+        accountRoleMapper.deleteByExample(accountRoleExample);
+        //删除用户
+        accountMapper.deleteByPrimaryKey(accountId);
+    }
 }
